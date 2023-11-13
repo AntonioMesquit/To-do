@@ -17,6 +17,7 @@ box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
 color: ${({theme}) => theme.COLORS.GREY_100};
 font-family: Inter;
 font-size: 14px;
+min-width: 500px;
 font-style: normal;
 font-weight: 400;
 line-height: 140%; /* 19.6px */

@@ -2,12 +2,44 @@ import {Container , Content} from './styles.js'
 import foguete from '../assets/rocket.svg'
 import { Task } from '../components/Task'
 import plus from '../assets/plus.svg'
-import { useEffect } from 'react'
+import { useState } from 'react'
 export function App() {
-const [tarefas, setTarefas] = useEffect([
-  "Muito foda!",
-  "Muito foda!",
-])
+  const [tarefas, setTarefas] = useState([
+
+  ])
+  const [novaTarefa, setNotaTarefa] = useState("")
+
+  
+  function handleNewTodo(){
+   setNotaTarefa(event.target.value);
+    
+  }
+  function handleNewSubmit(event) {
+    event.preventDefault();
+  
+    if (!novaTarefa) {
+      return alert("Preencha o campo para enviar uma task");
+    }
+  
+    const novaTarefaObj = {
+      content: novaTarefa,
+      checked: false,
+    };
+  
+    setTarefas([...tarefas, novaTarefaObj]);
+    setNotaTarefa('');
+    console.log(novaTarefaObj);
+  }
+  function deleteComment(content){
+    const commentsDeleteOne = tarefas.filter(tarefa => {
+        return tarefa !== content
+
+
+        //remover apenas o 
+    })
+    setTarefas(commentsDeleteOne)
+
+}
 
   return (
    <Container>
@@ -18,30 +50,28 @@ const [tarefas, setTarefas] = useEffect([
     <Content>
       <div className="alinhar">
       <form>
-        <input type="text" placeholder='Adicione uma nova tarefa'/>
-        <button>Criar <img src={plus} /></button>
+        <input type="text" placeholder='Adicione uma nova tarefa' onChange={handleNewTodo}/>
+        <button onClick={(event) => handleNewSubmit(event)}>Criar <img src={plus} /></button>
       </form>
       <div className="todo">
         <div className="top-todo">
           <div className="left">
             <p>Tarefas criadas</p>
-            <p>5</p>
+            <p>{tarefas.length}</p>
           </div>
           <div className="right">
           <p>Concluídas</p>
-          <p><span>2</span> de <span>5</span></p>
+          <p><span>2</span> de <span>{tarefas.length}</span></p>
 
           </div>
         </div>
       </div>
-       <div className="tasks">
-       {
-        tarefas.map(tarefa => {
-          return <Task/>
-        })
-       }
-     
-       </div>
+      <div className="tasks">
+  {tarefas.map((tarefa, index) => {
+    return <Task content={tarefa.content} handleDeleteTodo={deleteComment} key={index} />;
+  })}
+</div>
+
 
       </div>
     </Content>
