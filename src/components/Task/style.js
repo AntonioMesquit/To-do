@@ -1,5 +1,3 @@
-// style.js
-
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -18,7 +16,7 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.GREY_100};
     font-family: Inter;
     font-size: 14px;
-    min-width: 600px;
+    width: 600px;
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
@@ -57,4 +55,11 @@ export const Container = styled.div`
       display: none;
     }
   }
+  @media screen and (max-width: 768px) {
+  p{
+    width: 250px;
+  }  
+  }
+
+
 `;

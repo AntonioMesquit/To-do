@@ -5,7 +5,8 @@ import plus from '../assets/plus.svg'
 import { NoTask } from '../components/NoTask/index.jsx'
 import { useState } from 'react'
 export function App() {
-  const [tarefas, setTarefas] = useState([]);
+  const [tarefas, setTarefas] = useState([
+  ]);
   const [novaTarefa, setNotaTarefa] = useState("");
 
   function handleNewTodo() {
@@ -23,7 +24,7 @@ export function App() {
       content: novaTarefa,
       checked: false,
     };
-
+    console.log(novaTarefaObj)
     setTarefas([...tarefas, novaTarefaObj]);
     setNotaTarefa('');
   }

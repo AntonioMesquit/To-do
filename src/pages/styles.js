@@ -56,8 +56,8 @@ width: 100%;
     >input{
         background-color: ${({theme}) => theme.COLORS.GREY_500};
         border: 1px solid ${({theme}) => theme.COLORS.GREY_700};
-        width: 600px;
-        padding: 20px;
+        width: 100% ;
+        padding: 16px;
         border-radius: 10px;
         outline: none;
         color:  ${({theme}) => theme.COLORS.GREY_300};
@@ -147,6 +147,24 @@ width: 100%;
 
 
 
+@media screen and (max-width: 768px) {
+    .alinhar{
+        max-width: 350px;
 
+    }
+form{
+    flex-direction: column;
+    padding-inline: 35px;
+    align-items: center;
+    min-width: 150px;
+
+    > input{
+       width: 100%;
+    }
+    >button{
+        width: 100%;
+    }
+}
+}
 
 `

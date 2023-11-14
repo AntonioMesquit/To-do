@@ -5,7 +5,7 @@ import circulosemclique from '../../assets/circlenoclick.svg';
 import trash from '../../assets/trash.svg';
 import layer from '../../assets/Layer1.svg';
 
-export function Task({ content, handleDeleteTodo, checked, index, handleCheckedTodo }) {
+export function Task({ content, handleDeleteTodo, checked, index, handleCheckedTodo}) {
 
     function deleteComment() {
         handleDeleteTodo(content);
